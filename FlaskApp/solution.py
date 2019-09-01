@@ -92,3 +92,16 @@ y_train2 = to_categorical(y_train)
 
 # Fitting the ANN to the Training set
 classification.fit(train_variants2, y_train2, batch_size = 50, epochs = 100)
+
+#Saving the model
+#The below package is used for loading the saved model. Did not use it, just for information.
+from keras.models import load_model
+#To save the model which we have trained.
+classification.save("model3.h5")
+
+#Predicting
+y_pred = classification.predict(test_variants2)
+
+from sklearn.metrics import confusion_matrix
+matrix = confusion_matrix(y_test,y_pred)
+ 
