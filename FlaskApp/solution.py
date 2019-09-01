@@ -45,3 +45,20 @@ for i in range(367):
     corpus_test.extend(a1[i])
 
 X_test = cv.transform(corpus_test).toarray()
+test_variants = test_variants.drop(columns=["ID"])
+y_test = test_variants["Class"]
+del test_variants["Class"]
+test_variants = pd.get_dummies(test_variants,drop_first=True)
+X_test=pd.DataFrame(X_test)
+test_variants2 = test_variants.join(X_test,how='outer')
+
+#Gettinng common columns so as to keep number of features same
+common_columns = train_variants2.columns.intersection(test_variants2.columns)
+
+#Changing train_variants2
+train_columns_remove = train_variants2.columns.difference(common_columns)
+train_variants2 = train_variants2.drop(columns=train_columns_remove)
+
+#Changing test_variants2
+test_columns_remove = test_variants2.columns.difference(common_columns)
+test_variants2 = test_variants2.drop(columns=test_columns_remove)
