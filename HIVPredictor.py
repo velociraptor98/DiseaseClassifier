@@ -7,17 +7,23 @@ Created on Sun Sep  1 22:34:48 2019
 
 # importing libraries
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 #importing training dataset
-dataset_training = pd.read_csv("training_data.csv")
-X_train = dataset_training.iloc[:, [4,5]].values #VL-t0 and CD4-t0 values
-y_train = dataset_training.iloc[:, 1].values #target values
+dataset_training = pd.read_csv("HIV_training_data.csv")
+#VL-t0 and CD4-t0 values
+X_train = dataset_training.iloc[:, [4,5]].values 
+#target values 
+y_train = dataset_training.iloc[:, 1].values 
 
-#spitting the dataset into training set and text set
+#scaling CD4-t0 training values 
+X_train[:,1]=X_train[:,1]/100
+
+#spitting the dataset into training set and text set test size=0.20
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split( X_train , y_train, test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split( X_train , y_train, test_size=0.20, random_state=0)
+
+#scaling VL-t0 testing values 
+X_test[:,1]=X_test[:,1]/100
 
 # Fitting Logistic regression to training set
 from sklearn.linear_model import LogisticRegression
@@ -30,7 +36,8 @@ y_pred = classifier.predict(X_test)
 # Making the confusion Matrix
 from sklearn.metrics import confusion_matrix
 confusionMatrix = confusion_matrix(y_test, y_pred)
+print('Confusion Matrix : ')
 print(confusionMatrix)
 
-# 78% accuracy reached
-print(classifier.score(X_test,y_test))
+# 79% accuracy reached 
+print('score :',classifier.score(X_test,y_test))
