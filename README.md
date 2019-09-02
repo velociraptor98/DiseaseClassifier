@@ -1,6 +1,3 @@
-
-
-
 ## Introduction:
 The idea of the project is to provide clinical pathologists an interface through which they can classify the genes which cause mutations during cancer.
 This project is made with the view of reducing the effort and time taken by the doctors spent on classifying genes based on reports.
@@ -38,4 +35,3 @@ https://www.kaggle.com/c/msk-redefining-cancer-treatment/overview
 ## Bugs
 
 There is a bug in passing data that can crash the resultCancer.html.
-
