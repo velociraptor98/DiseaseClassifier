@@ -23,3 +23,15 @@ train_csv.writerow(['ID','Text'])
 
 stopwords = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
+
+def text_process(sent):
+   all_words=[]
+   sent=sent.translate(str.maketrans("","",string.punctuation))
+   tokenized=word_tokenize(sent)
+   for w in tokenized:
+       word=w.lower()
+       if word.isalpha() and word not in stopwords:
+           word=lemmatizer.lemmatize(word)
+           all_words.append(word)
+   str1=" ".join(all_words)
+   return str1
