@@ -31,11 +31,11 @@ def resultCancer():
       variation=request.form['Variation']
       text=request.form['Text']
       
-      wCancer['Gene']= gene
-      wCancer['Variation']= variation
-      wCancer['Text']= text
+#      wCancer['Gene']= gene
+#     wCancer['Variation']= variation
+#     wCancer['Text']= text
 
-      re=predictor.predict(wCancer)
+      re=predictor.predict(gene, variation, text)
      
       return render_template("resultCancer.html",result = re)
   
@@ -50,10 +50,10 @@ def resultHIV():
       vl = request.form["VL-t0"]
       cd4=request.form['CD4-t0']
 
-      wHiv["VL-t0"]= v1
-      wHiv["CD4-t0"]= cd4
+#      wHiv["VL-t0"]= v1
+#     wHiv["CD4-t0"]= cd4
 
-      re=predictorHIV.HIV(wHiv)
+      re=predictorHIV.HIV(v1, cd4)
       
       return render_template("resultHIV.html",result = re)
 
