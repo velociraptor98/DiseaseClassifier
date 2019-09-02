@@ -9,7 +9,7 @@ https://www.kaggle.com/c/hivprogression/data<br>
 https://www.kaggle.com/c/msk-redefining-cancer-treatment/overview
 
 ## Steps to run-
-1. Ensure data.zip is extracted
+1. Ensure data.zip is extracted need for Cancer Classification
 2. Run app2.py
 3. Example Inputs 
 	1. Cancer gene input
