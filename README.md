@@ -22,15 +22,15 @@ https://www.kaggle.com/c/msk-redefining-cancer-treatment/overview
 	    Output- Class 0
 		
 ## Requirements-
-python 3.7
-Flask==1.0.2
-Keras==2.2.4
-numpy==1.15.4
-matplotlib==3.0.2
-pandas==0.23.4
-scikit-learn==0.20.1
-sklearn==0.0
-tensorflow==1.13.1
+1. python 3.7
+2. Flask==1.0.2
+3. Keras==2.2.4
+4. numpy==1.15.4
+5. matplotlib==3.0.2
+6. pandas==0.23.4
+7. scikit-learn==0.20.1
+8. sklearn==0.0
+9. tensorflow==1.13.1
 
 ## Bugs
 
