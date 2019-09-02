@@ -1,6 +1,5 @@
 # importing python libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 import csv
 import nltk
@@ -34,16 +33,17 @@ def text_process(sent):
    str1=" ".join(all_words)
    return str1
 
+
 for i in range(0,3321):
     lable,text = train_list[i].split('||')
     text = text_process(text)
     train_csv.writerow([lable,text])
-    
+
+      
 file2 = open('test_text', 'r', encoding='utf-8') 
 test_text = file2.read()
 test_list = test_text.split('\n')
-X_test =[]
-y_test=[]
+
 
 test_csv=csv.writer(open('test_csv.csv','w',encoding = 'UTF-8'))
 test_csv.writerow(['ID','Text'])
