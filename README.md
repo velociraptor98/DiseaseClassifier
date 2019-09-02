@@ -1,7 +1,7 @@
 # DiseaseClassifier
 Web app to predict whether the disease is cancer or HIV positive given the gene sequence.
 
-The purpose of the project is to reduce the effort taken by pathologists to manually classify the genes which causes mutations based on evidence from text based clinical literature.
+Purpose:The purpose of the project is to reduce the effort taken by pathologists to manually classify the genes which causes mutations based on evidence from text based clinical literature.
 It also helps people with HIV to know whether their conditions is Improving or not.
 
 Introduction:
