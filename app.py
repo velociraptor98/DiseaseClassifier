@@ -12,28 +12,33 @@ import predictor
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
-writer={}
-
-
+wCancer={}
 
 @app.route('/')
-def student():
-   return render_template('Input.html')
+def index(methods=['GET', 'POST']):
+	
+   return render_template('index.html')
 
-@app.route('/result',methods = ['POST', 'GET'])
-def result():
+@app.route('/inputCancer.html')
+def inputCancer():
+   return render_template('inputCancer.html')
+
+@app.route('/resultCancer',methods = ['POST', 'GET'])
+def resultCancer():
    if request.method == 'POST':
       gene = request.form["Gene"]
       variation=request.form['Variation']
       text=request.form['Text']
       
-      writer['Gene']= gene
-      writer['Variation']= variation
-      writer['Text']= text
+      wCancer['Gene']= gene
+      wCancer['Variation']= variation
+      wCancer['Text']= text
 
-      re=predictor.predict(writer)
-      
-      return render_template("result.html",result = re)
+      re=predictor.predict(wCancer)
+     
+      return render_template("resultCancer.html",result = re)
+  
+    
 
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
